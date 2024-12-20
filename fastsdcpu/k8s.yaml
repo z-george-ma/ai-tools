@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fastsdcpu-deployment
+spec:
+  replicas: 1 # Adjust as needed
+  selector:
+    matchLabels:
+      app: fastsdcpu
+  template:
+    metadata:
+      labels:
+        app: fastsdcpu
+    spec:
+      containers:
+        - name: fastsdcpu
+          image: ghcr.io/z-george-ma/ai-tools/fastsdcpu:1.0.0-beta.100
+          ports:
+            - containerPort: 7860
+          volumeMounts:
+            - name: fastsdcpu-lora-models
+              mountPath: /app/lora_models
+            - name: fastsdcpu-controlnet-models
+              mountPath: /app/controlnet_models
+            - name: fastsdcpu-huggingface
+              mountPath: /root/.cache/huggingface
+      volumes:
+        - name: fastsdcpu-lora-models
+          hostPath:
+            path: /data/lora_models # local path on the node, or use PVC for a cluster
+            type: DirectoryOrCreate
+        - name: fastsdcpu-controlnet-models
+          hostPath:
+            path: /data/controlnet_models
+            type: DirectoryOrCreate
+        - name: fastsdcpu-huggingface
+          hostPath:
+            path: /data/huggingface
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fastsdcpu-service
+spec:
+  selector:
+    app: fastsdcpu
+  ports:
+    - protocol: TCP
+      port: 7860 # External port
+      targetPort: 7860 # Container port
+  type: ClusterIP
