@@ -17,6 +17,7 @@ spec:
           image: docker.io/alpine/ollama:latest
           ports:
             - containerPort: 11434
+            # hostPort: 11434 # uncomment for local cluster
           volumeMounts:
             - name: ollama-data
               mountPath: /root/.ollama

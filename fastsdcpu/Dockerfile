@@ -34,14 +34,13 @@ LABEL org.opencontainers.image.title="FastSD CPU Image" \
 RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates python3 ffmpeg
 
 COPY --from=build /app /app
+
+ENV PYTHONUNBUFFERED=1
+ENV GRADIO_SERVER_NAME=0.0.0.0
 ENV GRADIO_ANALYTICS_ENABLED=False
 
 WORKDIR /app
 
-VOLUME /app/lora_models
-VOLUME /app/controlnet_models
-VOLUME /root/.cache/huggingface
-
-EXPOSE 7860
-EXPOSE 8000
+VOLUME ["/app/lora_models", "/app/controlnet_models", "/root/.cache/huggingface"]
+EXPOSE 7860 8000
 CMD ["/app/start-webui.sh"]

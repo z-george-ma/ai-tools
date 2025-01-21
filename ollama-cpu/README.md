@@ -4,7 +4,7 @@ Minimal CPU-only Ollama Docker Image from [alpine/ollama](https://hub.docker.com
 
 ### Get Started
 
-#### Web UI
+#### API
 
 ```bash
 docker run -d -p 11434:11434 -v ~/.ollama/root/.ollama --name ollama alpine/ollama

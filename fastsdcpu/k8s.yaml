@@ -15,8 +15,12 @@ spec:
       containers:
         - name: fastsdcpu
           image: ghcr.io/z-george-ma/ai-tools/fastsdcpu:1.0.0-beta.100
+          env:
+            - name: GRADIO_SERVER_NAME
+              value: 0.0.0.0
           ports:
             - containerPort: 7860
+            # hostPort: 7860 # uncomment for local cluster
           volumeMounts:
             - name: fastsdcpu-lora-models
               mountPath: /app/lora_models

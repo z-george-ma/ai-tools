@@ -9,6 +9,7 @@ This repository contains Dockerfiles and configuration files for running popular
 ### Available Images
 
 **FastSD CPU** - Faster Stable Diffusion CPU version  
+Size: 1.09GB  
 See [fastsdcpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/fastsdcpu/README.md) for deployment instructions.
 
 **Ollama CPU** - Minimal CPU-only Ollama runtime

@@ -4,13 +4,13 @@ Fastsdcpu is a CPU inference implementation of Stable Diffusion. This image prov
 
 ### Get Started
 
-#### Web UI
+#### GRadio Web UI
 
 ```bash
 docker run -p 7860:7860 ghcr.io/z-george-ma/ai-tools/fastsdcpu:latest
 ```
 
-Visit http://localhost:7860 for the web UI.
+Visit http://localhost:7860 for the GRadio web UI.
 
 #### Web API
 
