@@ -31,7 +31,9 @@ LABEL org.opencontainers.image.title="FastSD CPU Image" \
       org.opencontainers.image.url='https://github.com/z-george-ma/ai-tools/' \
       org.opencontainers.image.documentation='https://github.com/z-george-ma/ai-tools/blob/main/fastsdcpu/README.md'
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates python3 ffmpeg
+RUN apt update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates python3 ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /app /app
 

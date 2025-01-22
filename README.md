@@ -9,11 +9,15 @@ This repository contains Dockerfiles and configuration files for running popular
 ### Available Images
 
 **FastSD CPU** - Faster Stable Diffusion CPU version  
-Size: 1.09GB  
+Size: 1.09 GiB  
 See [fastsdcpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/fastsdcpu/README.md) for deployment instructions.
 
 **Ollama CPU** - Minimal CPU-only Ollama runtime
 See [ollama-cpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ollama-cpu/README.md) for deployment instructions.
+
+**Ollama (GPU supported)** - Ollama with GPU support
+Size: 56.5 MiB
+See [ollama/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ollama/README.md) for deployment instructions.
 
 ### License
 

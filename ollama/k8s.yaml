@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ollama-deployment
+spec:
+  replicas: 1 # Adjust as needed
+  selector:
+    matchLabels:
+      app: ollama
+  template:
+    metadata:
+      labels:
+        app: ollama
+    spec:
+      containers:
+        - name: ollama
+          image: ghcr.io/z-george-ma/ai-tools/ollama:latest
+          env:
+            - name: OLLMA_HOST
+              value: 0.0.0.0
+            - name: OLLAMA_DEBUG
+              value: "0"
+            - name: OLLAMA_KEEP_ALIVE
+              value: "-1"
+            - name: GIN_MODE
+              value: release
+          ports:
+            - containerPort: 11434
+            # hostPort: 11434 # uncomment for local cluster
+          volumeMounts:
+            - name: ollama-data
+              mountPath: /root/.ollama
+          resources:
+            limits:
+              nvidia.com/gpu: 1
+      volumes:
+        - name: ollama-data
+          hostPath:
+            path: /data/ollama # local path on the node, or use PVC for a cluster
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ollama-service
+spec:
+  selector:
+    app: ollama
+  ports:
+    - protocol: TCP
+      port: 11434 # External port
+      targetPort: 11434 # Container port
+  type: ClusterIP
