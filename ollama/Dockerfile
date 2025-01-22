@@ -12,6 +12,7 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /app/ollama /usr/bin/ollama
+COPY --from=build /app/llama/build/linux-amd64/runners /usr/bin/llama/build/linux-amd64/runners
 
 ENV OLLMA_HOST=0.0.0.0
 ENV OLLAMA_DEBUG=0
