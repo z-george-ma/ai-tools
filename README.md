@@ -15,7 +15,7 @@ See [fastsdcpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/fast
 **Ollama CPU** - Minimal CPU-only Ollama runtime
 See [ollama-cpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ollama-cpu/README.md) for deployment instructions.
 
-**Ollama (GPU supported)** - Ollama with GPU support
+**Ollama (CUDA runner)** - Ollama with CUDA runner
 Size: 56.5 MiB
 See [ollama/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ollama/README.md) for deployment instructions.
 

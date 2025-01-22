@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ollama
-          image: ghcr.io/z-george-ma/ai-tools/ollama:latest
+          image: ghcr.io/z-george-ma/ai-tools/ollama-cuda:latest
           env:
             - name: OLLAMA_HOST
               value: 0.0.0.0

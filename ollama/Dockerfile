@@ -1,9 +1,9 @@
-FROM ubuntu:24.04 AS build
+FROM nvidia/cuda:12.6.3-cudnn-devel-ubuntu24.04 AS build
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates git golang-go build-essential \
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates git golang-go \
     && git clone --depth 1 https://github.com/ollama/ollama.git /app \
     && cd /app \
-    && CGO_ENABLED=1 go build .
+    && make CUDA_12_PATH=/usr/local/cuda CUDA_12_COMPILER=/usr/local/cuda/bin/nvcc
 
 FROM ubuntu:24.04
 
