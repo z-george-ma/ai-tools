@@ -16,7 +16,7 @@ spec:
         - name: ollama
           image: ghcr.io/z-george-ma/ai-tools/ollama:latest
           env:
-            - name: OLLMA_HOST
+            - name: OLLAMA_HOST
               value: 0.0.0.0
             - name: OLLAMA_DEBUG
               value: "0"
