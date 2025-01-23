@@ -5,7 +5,7 @@ RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install
     && cd /app \
     && make CUDA_12_PATH=/usr/local/cuda CUDA_12_COMPILER=/usr/local/cuda/bin/nvcc
 
-FROM ubuntu:24.04
+FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu24.04
 
 RUN apt update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates \

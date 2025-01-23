@@ -4,6 +4,8 @@ metadata:
   name: ollama-deployment
 spec:
   replicas: 1 # Adjust as needed
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: ollama

@@ -4,16 +4,18 @@ metadata:
   name: ollama-deployment
 spec:
   replicas: 1 # Adjust as needed
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: ollama
   template:
     metadata:
       labels:
-        app: ollama
+        app: ollama-cuda
     spec:
       containers:
-        - name: ollama
+        - name: ollama-cuda
           image: ghcr.io/z-george-ma/ai-tools/ollama-cuda:latest
           env:
             - name: OLLAMA_HOST
@@ -45,7 +47,7 @@ metadata:
   name: ollama-service
 spec:
   selector:
-    app: ollama
+    app: ollama-cuda
   ports:
     - protocol: TCP
       port: 11434 # External port

@@ -12,12 +12,14 @@ This repository contains Dockerfiles and configuration files for running popular
 Size: 1.09 GiB  
 See [fastsdcpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/fastsdcpu/README.md) for deployment instructions.
 
-**Ollama CPU** - Minimal CPU-only Ollama runtime
+**Ollama CPU** - Minimal CPU-only Ollama runtime  
 See [ollama-cpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ollama-cpu/README.md) for deployment instructions.
 
-**Ollama (CUDA runner)** - Ollama with CUDA runner
-Size: 56.5 MiB
-See [ollama/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ollama/README.md) for deployment instructions.
+**Ollama (CUDA runner)** - Ollama with CUDA runner  
+See [ollama-cuda/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ollama-cuda/README.md) for deployment instructions.
+
+**Open WebUI** - Open WebUI front-end for Ollama  
+See [open-webui/README.md](https://github.com/z-george-ma/ai-tools/blob/main/open-webui/README.md) for deployment instructions.
 
 ### License
 
@@ -29,3 +31,4 @@ This project builds upon the following open-source projects:
 
 - [Fastsdcpu](https://github.com/rupeshs/fastsdcpu)
 - [alpine/ollama](https://hub.docker.com/r/alpine/ollama)
+- [open-webui](https://github.com/open-webui/open-webui)
