@@ -42,7 +42,7 @@ spec:
               mountPath: /app/models/loras
             - name: sd-cpp-webui-taesd
               mountPath: /app/models/taesd
-            - name: sd-cpp-webui-upscale_models
+            - name: sd-cpp-webui-upscale-models
               mountPath: /app/models/upscale_models
             - name: sd-cpp-webui-output
               mountPath: /app/outputs
@@ -80,7 +80,7 @@ spec:
             type: DirectoryOrCreate
         - name: sd-cpp-webui-upscale_models
           hostPath:
-            path: /data/sd-cpp/upscale_models
+            path: /data/sd-cpp/upscale-models
             type: DirectoryOrCreate
         - name: sd-cpp-webui-output
           hostPath:
