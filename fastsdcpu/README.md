@@ -22,13 +22,13 @@ Web API is hosted on http://localhost:8000/api. Documentation is located at http
 
 #### Mount points
 
-- `/app/lora_models`
+- `/app/lora_models`  
   Storage for LoRA models
 
-- `/app/controlnet_models`
+- `/app/controlnet_models`  
   Storage for ControlNet models
 
-- `/root/.cache/huggingface`
+- `/root/.cache/huggingface`  
   HuggingFace models cache
 
 ### Kubernetes deployment

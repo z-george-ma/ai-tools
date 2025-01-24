@@ -46,6 +46,9 @@ spec:
               mountPath: /app/models/upscale_models
             - name: sd-cpp-webui-output
               mountPath: /app/outputs
+          resources:
+            limits:
+              nvidia.com/gpu: 1
       volumes:
         - name: sd-cpp-webui-checkpoints
           hostPath:

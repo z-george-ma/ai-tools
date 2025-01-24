@@ -14,7 +14,7 @@ Visit http://localhost:8080 for the web UI.
 
 #### Mount points
 
-- `/app/backend/data`
+- `/app/backend/data`  
   Storage for Open WebUI.
 
 ### Kubernetes deployment

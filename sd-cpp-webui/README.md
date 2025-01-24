@@ -1,6 +1,6 @@
 # stable-diffusion.cpp with GRadio Web UI
 
-[stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp) with CUDA support and GRadio Web UI.
+[stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp) with CUDA support and [Web UI](https://github.com/daniandtheweb/sd.cpp-webui).
 
 ### Get Started
 
@@ -18,34 +18,34 @@ GRadio Web UI is hosted on http://localhost:7860/.
 
 #### Mount points
 
-- `/app/models/checkpoints`
+- `/app/models/checkpoints`  
   Stable diffusion models
 
-- `/app/models/controlnet`
+- `/app/models/controlnet`  
   ControlNet models
 
-- `/app/models/embeddings`
+- `/app/models/embeddings`  
   Embeddings models
 
-- `/app/models/photomaker`
+- `/app/models/photomaker`  
   PhotoMaker models
 
-- `/app/models/unet`
+- `/app/models/unet`  
   UNet models
 
-- `/app/models/vae`
+- `/app/models/vae`  
   VAE (Variational Autoencoder) models
 
-- `/app/models/loras`
+- `/app/models/loras`  
   LoRA models
 
-- `/app/models/taesd`
+- `/app/models/taesd`  
   TAESD (Tiny AutoEncoder for Stable Diffusion) models
 
-- `/app/models/upscale_models`
+- `/app/models/upscale_models`  
   Upscaling models
 
-- `/app/outputs`
+- `/app/outputs`  
   Output images
 
 ### Kubernetes deployment

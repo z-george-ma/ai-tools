@@ -14,7 +14,7 @@ API is hosted on http://localhost:11434/.
 
 #### Mount points
 
-- `/root/.ollama`
+- `/root/.ollama`  
   Storage for ollama models
 
 ### Kubernetes deployment
