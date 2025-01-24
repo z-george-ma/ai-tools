@@ -27,14 +27,14 @@ ENV GRADIO_ANALYTICS_ENABLED=False
 WORKDIR /app
 
 VOLUME [ \
-    "/app/models/checkpoints", \
-    "/app/models/controlnet", \
-    "/app/models/embeddings", \
-    "/app/models/photomaker", \
-    "/app/models/unet", \
-    "/app/models/vae", \
-    "/app/models/loras", \
-    "/app/models/taesd", \
+    "/app/models/checkpoints" \
+    "/app/models/controlnet" \
+    "/app/models/embeddings" \
+    "/app/models/photomaker" \
+    "/app/models/unet" \
+    "/app/models/vae" \
+    "/app/models/loras" \
+    "/app/models/taesd" \
     "/app/models/upscale_models" \
     "/app/outputs" \
 ]
