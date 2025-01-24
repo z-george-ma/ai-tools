@@ -33,6 +33,33 @@ jobs:
           build-args: |
             BUILD_DATE=${{ github.run_number }}
 
+  build-sd-cpp-webui:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: docker/setup-buildx-action@v2
+      - uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: sd-cpp-webui
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}/sd-cpp-webui:${{ github.sha }}
+            ghcr.io/${{ github.repository }}/sd-cpp-webui:latest
+          build-args: |
+            BUILD_DATE=${{ github.run_number }}
+
   build-ollama:
     runs-on: ubuntu-latest
     permissions:

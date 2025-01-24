@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sd-cpp-webui-deployment
+spec:
+  replicas: 1 # Adjust as needed
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: sd-cpp-webui
+  template:
+    metadata:
+      labels:
+        app: sd-cpp-webui
+    spec:
+      containers:
+        - name: sd-cpp-webui
+          image: ghcr.io/z-george-ma/ai-tools/sd-cpp-webui:latest
+          env:
+            - name: PYTHONUNBUFFERED
+              value: "1"
+            - name: GRADIO_SERVER_NAME
+              value: 0.0.0.0
+            - name: GRADIO_ANALYTICS_ENABLED
+              value: "False"
+          ports:
+            - containerPort: 7860
+            # hostPort: 7860 # uncomment for local cluster
+          volumeMounts:
+            - name: sd-cpp-webui-checkpoints
+              mountPath: /app/models/checkpoints
+            - name: sd-cpp-webui-controlnet
+              mountPath: /app/models/controlnet
+            - name: sd-cpp-webui-embeddings
+              mountPath: /app/models/embeddings
+            - name: sd-cpp-webui-photomaker
+              mountPath: /app/models/photomaker
+            - name: sd-cpp-webui-unet
+              mountPath: /app/models/unet
+            - name: sd-cpp-webui-loras
+              mountPath: /app/models/loras
+            - name: sd-cpp-webui-taesd
+              mountPath: /app/models/taesd
+            - name: sd-cpp-webui-upscale_models
+              mountPath: /app/models/upscale_models
+      volumes:
+        - name: sd-cpp-webui-checkpoints
+          hostPath:
+            path: /data/sd-cpp/checkpoints # local path on the node, or use PVC for a cluster
+            type: DirectoryOrCreate
+        - name: sd-cpp-webui-controlnet
+          hostPath:
+            path: /data/sd-cpp/controlnet
+            type: DirectoryOrCreate
+        - name: sd-cpp-webui-embeddings
+          hostPath:
+            path: /data/sd-cpp/embeddings
+            type: DirectoryOrCreate
+        - name: sd-cpp-webui-photomaker
+          hostPath:
+            path: /data/sd-cpp/photomaker
+            type: DirectoryOrCreate
+        - name: sd-cpp-webui-unet
+          hostPath:
+            path: /data/sd-cpp/unet
+            type: DirectoryOrCreate
+        - name: sd-cpp-webui-loras
+          hostPath:
+            path: /data/sd-cpp/loras
+            type: DirectoryOrCreate
+        - name: sd-cpp-webui-taesd
+          hostPath:
+            path: /data/sd-cpp/taesd
+            type: DirectoryOrCreate
+        - name: sd-cpp-webui-upscale_models
+          hostPath:
+            path: /data/sd-cpp/upscale_models
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sd-cpp-webui-service
+spec:
+  selector:
+    app: sd-cpp-webui
+  ports:
+    - protocol: TCP
+      port: 7860 # External port
+      targetPort: 7860 # Container port
+  type: ClusterIP

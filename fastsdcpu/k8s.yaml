@@ -18,8 +18,12 @@ spec:
         - name: fastsdcpu
           image: ghcr.io/z-george-ma/ai-tools/fastsdcpu:1.0.0-beta.100
           env:
+            - name: PYTHONUNBUFFERED
+              value: "1"
             - name: GRADIO_SERVER_NAME
               value: 0.0.0.0
+            - name: GRADIO_ANALYTICS_ENABLED
+              value: "False"
           ports:
             - containerPort: 7860
             # hostPort: 7860 # uncomment for local cluster

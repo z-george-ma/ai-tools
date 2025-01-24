@@ -12,6 +12,9 @@ This repository contains Dockerfiles and configuration files for running popular
 Size: 1.09 GiB  
 See [fastsdcpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/fastsdcpu/README.md) for deployment instructions.
 
+**stable-diffusion.cpp (CUDA) with GRadio** - Stable Difffusion with CUDA support and GRadio Web UI
+See [sd-cpp-webui/README.md](https://github.com/z-george-ma/ai-tools/blob/main/sd-cpp-webui/README.md) for deployment instructions.
+
 **Ollama CPU** - Minimal CPU-only Ollama runtime  
 See [ollama-cpu/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ollama-cpu/README.md) for deployment instructions.
 
@@ -32,3 +35,5 @@ This project builds upon the following open-source projects:
 - [Fastsdcpu](https://github.com/rupeshs/fastsdcpu)
 - [alpine/ollama](https://hub.docker.com/r/alpine/ollama)
 - [open-webui](https://github.com/open-webui/open-webui)
+- [stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp)
+- [sd.cpp-webui](https://github.com/daniandtheweb/sd.cpp-webui)
