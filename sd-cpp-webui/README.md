@@ -45,6 +45,9 @@ GRadio Web UI is hosted on http://localhost:7860/.
 - `/app/models/upscale_models`
   Upscaling models
 
+- `/app/outputs`
+  Output images
+
 ### Kubernetes deployment
 
 Refer to [k8s.yaml](https://github.com/z-george-ma/ai-tools/blob/main/sd-cpp-webui/k8s.yaml) for Kubernetes deployment.

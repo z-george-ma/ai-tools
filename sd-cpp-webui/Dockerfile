@@ -17,7 +17,7 @@ RUN git clone --depth 1 https://github.com/daniandtheweb/sd.cpp-webui /web \
     )
 
 FROM nvidia/cuda:12.6.3-cudnn-runtime-ubuntu24.04
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates python3
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ca-certificates python3 libgomp1
 COPY --from=build /web /app
 
 ENV PYTHONUNBUFFERED=1
@@ -36,6 +36,7 @@ VOLUME [ \
     "/app/models/loras", \
     "/app/models/taesd", \
     "/app/models/upscale_models" \
+    "/app/outputs" \
 ]
 
 EXPOSE 7860
