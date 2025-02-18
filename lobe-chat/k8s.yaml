@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lobechat-deployment
+spec:
+  replicas: 1 # Adjust as needed
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: lobechat
+  template:
+    metadata:
+      labels:
+        app: lobechat
+    spec:
+      containers:
+        - name: lobechat
+          image: docker.io/lobehub/lobe-chat:latest
+          env:
+            - name: OPENAI_API_KEY
+              value: sk-xxx
+          ports:
+            - containerPort: 3210
+            # hostPort: 3210 # uncomment for local cluster
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobechat-service
+spec:
+  selector:
+    app: lobechat
+  ports:
+    - protocol: TCP
+      port: 3210 # External port
+      targetPort: 3210 # Container port
+  type: ClusterIP

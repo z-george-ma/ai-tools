@@ -24,6 +24,9 @@ See [ollama-cuda/README.md](https://github.com/z-george-ma/ai-tools/blob/main/ol
 **Open WebUI** - Open WebUI front-end for Ollama  
 See [open-webui/README.md](https://github.com/z-george-ma/ai-tools/blob/main/open-webui/README.md) for deployment instructions.
 
+**Lobe-chat** - Lobe-chat front-end for Ollama or cloud APIs  
+See [lobe-chat/README.md](https://github.com/z-george-ma/ai-tools/blob/main/lobe-chat/README.md) for deployment instructions.
+
 ### License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -35,5 +38,6 @@ This project builds upon the following open-source projects:
 - [Fastsdcpu](https://github.com/rupeshs/fastsdcpu)
 - [alpine/ollama](https://hub.docker.com/r/alpine/ollama)
 - [open-webui](https://github.com/open-webui/open-webui)
+- [lobe-chat](https://github.com/lobehub/lobe-chat)
 - [stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp)
 - [sd.cpp-webui](https://github.com/daniandtheweb/sd.cpp-webui)
